@@ -8,18 +8,19 @@ public class Main {
 
         calculation.calculationQuadraticEquation(3, 4, 1);
 
-        System.out.println("Расчет квадратного уравнения через теорему Виета. x1 = " +
-                calculation.QuadraticEquationTheoremViet_x1(8, 15) + " x2 = " +
-                calculation.QuadraticEquationTheoremViet_x2(8, 15));
+        System.out.println("Solving a quadratic equation by the Vieta's theorem. x1 = " +
+                calculation.getXOneByVient(8, 15) + " x2 = " +
+                calculation.getXTwoByVient(8, 15));
 
-        System.out.println("Расчет площади круга (радиус = 100): Площадь S = " +
+        System.out.println("Calculation of the area of a circle (radius = 100): Area S = " +
                 calculation.calculationAreaOfCircle(100));
 
-        System.out.println("Расчет длинны окружности (радиус = 68): Длина L = " +
-                calculation.CircleLength(68));
+        System.out.println("Calculate circle length (radius = 68): Length L = " +
+                calculation.calculationCircleLength(68));
 
-        calculation.HypotenuseLength(3, 4);
-        System.out.println("Расчет длинны гипотенузы. Катет 1 = 3, Катет 2 = 4, Длина гипотенузы = "  +
-                calculation.HypotenuseLength(3,4));
+        calculation.calculationHypotenuseLength(3, 4);
+        System.out.println("Calculating length of the hypotenuse. " +
+                "Cathetus one = 3, Cathetus two = 4, Length of the hypotenuse = "  +
+                calculation.calculationHypotenuseLength(3,4));
     }
 }
