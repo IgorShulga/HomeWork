@@ -1,10 +1,44 @@
 package hw_2;
 
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Calculation {
+
+    public void calculationQuadraticEquationByVieta(int p, int q) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>() {{
+            put(1, 1);
+            put(2, 2);
+            put(3, 3);
+            put(4, 4);
+            put(5, 5);
+            put(6, 6);
+            put(7, 7);
+            put(8, 8);
+            put(9, 9);
+            put(10, 10);
+            put(-1, -1);
+            put(-2, -2);
+            put(-3, -3);
+            put(-4, -4);
+            put(-5, -5);
+            put(-6, -6);
+            put(-7, -7);
+            put(-8, -8);
+            put(-9, -9);
+            put(-10, -10);
+        }};
+
+        for(int key : map.keySet()){
+            for(int value : map.values()){
+                while ((key + value == (-1) * p) && (key * value == q)) {
+                    System.out.println("x1 = " + key + "\nx2 = " + value);
+                    return;
+                }
+            }
+        }
+    }
 
     public BigInteger getFactorialByRecursion(int num) {
         BigInteger factorial_1 = BigInteger.ONE;
@@ -34,23 +68,16 @@ public class Calculation {
                         "\nis not roots");
     }
 
-    //    public void calculationQuadraticEquationByVieta (int p, int q) {
-//        int x1, x2;
-//
-//        if((x1 + x2 == (-1) * p) && (x1 * x2 == q)) {
-//            System.out.println(
-//                    "Solving a quadratic equation: \n" + "x^2 + " + p+ "x + " + q + " = 0 " +
-//                            "\nx1 = " + x1 + " x2 = " + x2);
-//        }
-//    }
     public void printFibonachiNumbers(int amountOfNumbers) {
-        int[] fib = new int[amountOfNumbers];
-        fib[0] = 0;
-        fib[1] = 1;
+        int tempNumber1 = 0;
+        int tempNumber2 = 1;
+        System.out.print("Fibonachi numbers: " + tempNumber1 + "; " + tempNumber2 + "; ");
         for (int n = 2; n < amountOfNumbers; n++) {
-            fib[n] = fib[n - 1] + fib[n - 2];
+            int number =tempNumber1 + tempNumber2;
+            System.out.print(number + "; ");
+            tempNumber1 = tempNumber2;
+            tempNumber2 = number;
         }
-        System.out.print("Fibonachi numbers: " + Arrays.toString(fib));
     }
 
     public void printMultiplicationTable() {

@@ -10,6 +10,13 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("For calculation quadratic equation recommend  p=4, q=-5  or p=-1, q=-6(checked value)");
+        System.out.println("For quadratic equation x^2 + px + q = 0 Enter a value - p: ");
+        int p = scanner.nextInt();
+        System.out.println("For quadratic equation x^2 + px + q = 0 Enter a value - q: ");
+        int q = scanner.nextInt();
+        calculation.calculationQuadraticEquationByVieta(p,q);
+
 //        0. нахождение факториала числа через рекурсию
         System.out.print("Enter a number more than 0, please: ");
         int numberMoreZero = scanner.nextInt();
