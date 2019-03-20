@@ -6,8 +6,6 @@ public class Main {
 
         Calculation calculation = new Calculation();
 
-        calculation.calculationQuadraticEquation(3, 4, 1);
-
         System.out.println("Solving a quadratic equation by the Vieta's theorem. x1 = " +
                 calculation.getXOneByVient(8, 15) + " x2 = " +
                 calculation.getXTwoByVient(8, 15));
