@@ -3,12 +3,12 @@ package hw_4;
 public class Util {
     int distance = (int)(Math.random()*1000);
 
-    public void startEngine(){
-        System.out.println("wrumm... wrumm... I`m start the engine");
+    public void startEngine(Car car){
+        System.out.println("wrumm... wrumm... Engine of " + car.getModel() + "start.");
     }
 
-    public void stopEngine(){
-        System.out.println("... I`m stop the engine");
+    public void stopEngine(Car car){
+        System.out.println("... Engine " + car.getModel() + " stop.");
     }
 
     public Car sitInCar(Car car, Passanger passanger){
@@ -35,19 +35,24 @@ public class Util {
             return car;
     }
 
-    public Car getOutOfCar(Car car, Passanger passanger){
-        boolean isPassInCar = false;
-        for(Passanger pass : car.getPassangers()){
-            if(pass == null){
-                break;
-            } else if(pass.equals(passanger)){
-                isPassInCar = true;
-                break;
+    public boolean isPassInCar(Car car, Passanger passanger){
+            boolean isPassInCar = false;
+            for(Passanger pass : car.getPassangers()){
+                if(pass == null){
+                    break;
+                } else if(pass.equals(passanger)){
+                    isPassInCar = true;
+                    break;
+                } else {
+                    isPassInCar = false;
+                    System.out.println("This passanger is not in car now.");
+                }
             }
-        }
-        if(isPassInCar == false) {
-            System.out.println("This passanger is not in car now.");
-        } else {
+            return isPassInCar;
+    }
+
+    public Car getOutOfCar(Car car, Passanger passanger){
+        if (isPassInCar(car, passanger) == true){
             for(int numberSeat = 0; numberSeat < car.getPassangers().length; numberSeat++){
                 if(passanger.equals(null)) {
                     break;
@@ -61,34 +66,22 @@ public class Util {
         return car;
     }
 
-    public void haveEat(){
-        System.out.println("Passangers eat.");
+    public Car getOutOfCar(Car car, int numberPass){
+        for(int number = 0; number < car.getPassangers().length; number++){
+            if(numberPass == number){
+                car.getPassangers()[number] = null;
+                System.out.println(car.getPassangers()[numberPass] + " exit from car. " + numberPass + " seat is free");
+            }
+        }
+        return car;
+    }
+
+    public void haveEat(Passanger passanger){
+        System.out.println("Passangers " + passanger.getName() + " eat.");
     }
 
     public void isRide(Car car){
         System.out.println(car.getModel() + " rides");
-    }
-
-    public Passanger getPassanger (Car car, Passanger passanger){
-        Passanger getPass = null;
-        for(Passanger pass : car.getPassangers()){
-            if(passanger == pass){
-                getPass = pass;
-                break;
-            }
-        }
-        return getPass;
-    }
-
-    public Passanger getPassanger (Car car, int number){
-        Passanger getPass = null;
-        for(int numerPass = 0; numerPass < car.getPassangers().length; numerPass++){
-            if(numerPass == number){
-                getPass = car.getPassangers()[numerPass];
-                break;
-            }
-        }
-        return getPass;
     }
 
     public boolean canDriveDistance (Car car) {
@@ -110,7 +103,7 @@ public class Util {
     }
 
     public void stopCar(Car car){
-        stopEngine();
+        stopEngine(car);
         System.out.println("The car stoped");
     }
 

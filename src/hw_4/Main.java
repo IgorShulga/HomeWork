@@ -23,23 +23,23 @@ public class Main {
             util.sitInCar(car1, passangerVasya);
             util.sitInCar(car1, passangerJhon);
             util.sitInCar(car1, passangerKelly);
-            util.startEngine();
+            util.startEngine(car1);
             int numberKmForStop = (int)(Math.random()* util.distance);
             System.out.println("We drove up to " + numberKmForStop + " km. We need stop.");
         util.stopCar(car1);
         util.getOutOfCar(car1, passangerAndy);
-        util.getOutOfCar(car1, util.getPassanger(car1, 2));
-            util.haveEat();
+        util.getOutOfCar(car1, 2);
+            util.haveEat(passangerAndy);
             util.sitInCar(car1, passangerAndy);
             util.sitInCar(car1, passangerMary);
-            util.startEngine();
+            util.startEngine(car1);
             util.isRide(car1);
             System.out.println("We are at destination");
-            util.getOutOfCar(car1, util.getPassanger(car1, 0));
-            util.getOutOfCar(car1, util.getPassanger(car1, 1));
-            util.getOutOfCar(car1, util.getPassanger(car1, 2));
-            util.getOutOfCar(car1, util.getPassanger(car1, 3));
-            util.stopEngine();
+            util.getOutOfCar(car1, 0);
+            util.getOutOfCar(car1, 1);
+            util.getOutOfCar(car1, 2);
+            util.getOutOfCar(car1, 3);
+            util.stopEngine(car1);
         } else {
             System.out.println("We can't get there. We need an airplane! :)");
         }
