@@ -30,8 +30,8 @@ public class Calculation {
             put(-10, -10);
         }};
 
-        for(int key : map.keySet()){
-            for(int value : map.values()){
+        for (int key : map.keySet()) {
+            for (int value : map.values()) {
                 while ((key + value == (-1) * p) && (key * value == q)) {
                     System.out.println("x1 = " + key + "\nx2 = " + value);
                     return;
@@ -69,14 +69,27 @@ public class Calculation {
     }
 
     public void printFibonachiNumbers(int amountOfNumbers) {
-        int tempNumber1 = 0;
+        int tempNumber1 = 1;
         int tempNumber2 = 1;
         System.out.print("Fibonachi numbers: " + tempNumber1 + "; " + tempNumber2 + "; ");
         for (int n = 2; n < amountOfNumbers; n++) {
-            int number =tempNumber1 + tempNumber2;
+            int number = tempNumber1 + tempNumber2;
             System.out.print(number + "; ");
             tempNumber1 = tempNumber2;
             tempNumber2 = number;
+        }
+    }
+
+    public void fib(int n) {
+        int a = 1;
+        int b = 1;
+        int x;
+        System.out.print(a + ", " + b);
+        for(int i = 2; i < n; i++){
+            x = a + b;
+            System.out.print(", " + x);
+            a = b;
+            b = x;
         }
     }
 
@@ -126,17 +139,17 @@ public class Calculation {
     }
 
     public void getOddNumbers(int firstNumber, int secondNumber) {
-        if(firstNumber < secondNumber){
+        if (firstNumber < secondNumber) {
             System.out.print("Odd integer between " + firstNumber + " and " + secondNumber + ": ");
-            for(; firstNumber <= secondNumber; firstNumber++){
-                if(firstNumber % 2 != 0) {
+            for (; firstNumber <= secondNumber; firstNumber++) {
+                if (firstNumber % 2 != 0) {
                     System.out.print(firstNumber + "; ");
                 }
             }
         } else {
             System.out.print("Odd integer between " + secondNumber + " and " + firstNumber + ": ");
-            for(; secondNumber <= firstNumber; secondNumber++) {
-                if(secondNumber % 2 != 0) {
+            for (; secondNumber <= firstNumber; secondNumber++) {
+                if (secondNumber % 2 != 0) {
                     System.out.print(secondNumber + "; ");
                 }
             }
@@ -144,17 +157,17 @@ public class Calculation {
     }
 
     public void getEvenNumber(int firstNumber, int secondNumber) {
-        if(firstNumber < secondNumber){
+        if (firstNumber < secondNumber) {
             System.out.print("Even integer between " + firstNumber + " and " + secondNumber + ": ");
-            for(; firstNumber <= secondNumber; firstNumber++){
-                if(firstNumber % 2 == 0) {
+            for (; firstNumber <= secondNumber; firstNumber++) {
+                if (firstNumber % 2 == 0) {
                     System.out.print(firstNumber + "; ");
                 }
             }
         } else {
             System.out.print("Even integer between " + secondNumber + " and " + firstNumber + ": ");
-            for(; secondNumber <= firstNumber; secondNumber++) {
-                if(secondNumber % 2 == 0) {
+            for (; secondNumber <= firstNumber; secondNumber++) {
+                if (secondNumber % 2 == 0) {
                     System.out.print(secondNumber + "; ");
                 }
             }
