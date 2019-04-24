@@ -8,11 +8,11 @@ import java.util.Set;
 
 public class Util {
 
-    public void giveOneBribe(Map<String, Party> rada) {
+    public void giveOneBribe(Map<String, Partia> rada) {
         int count = 0;
         int random = new Random().nextInt(8);
-        Set<Map.Entry<String, Party>> entry = rada.entrySet();
-        for (Map.Entry<String, Party> nameOfDeputy : entry) {
+        Set<Map.Entry<String, Partia>> entry = rada.entrySet();
+        for (Map.Entry<String, Partia> nameOfDeputy : entry) {
             for (Deputy deputy : nameOfDeputy.getValue().getDeputies()) {
                 count++;
                 if (count == random) {
@@ -24,9 +24,9 @@ public class Util {
         }
     }
 
-    public void giveBribeEveryone(Map<String, Party> rada) {
-        Set<Map.Entry<String, Party>> entry = rada.entrySet();
-        for (Map.Entry<String, Party> nameOfDeputy : entry) {
+    public void giveBribeEveryone(Map<String, Partia> rada) {
+        Set<Map.Entry<String, Partia>> entry = rada.entrySet();
+        for (Map.Entry<String, Partia> nameOfDeputy : entry) {
             for (Deputy deputy : nameOfDeputy.getValue().getDeputies()) {
                 deputy.setBribeTaker(true);
             }
@@ -34,9 +34,9 @@ public class Util {
         System.out.println("We bribed everyone...");
     }
 
-    public Deputy findtakeBribeInRada(Map<String, Party> rada) {
-        Set<Map.Entry<String, Party>> entry = rada.entrySet();
-        for (Map.Entry<String, Party> nameOfDeputy : entry) {
+    public Deputy findtakeBribeInRada(Map<String, Partia> rada) {
+        Set<Map.Entry<String, Partia>> entry = rada.entrySet();
+        for (Map.Entry<String, Partia> nameOfDeputy : entry) {
             for (Deputy deputy : nameOfDeputy.getValue().getDeputies()) {
                 if (deputy.isBribeTaker()) {
                     return deputy;
@@ -47,9 +47,9 @@ public class Util {
     }
 
 
-    public String findPartiaBribetakers(Map<String, Party> rada, String bribetaker) {
-        Set<Map.Entry<String, Party>> entry = rada.entrySet();
-        for (Map.Entry<String, Party> nameOfDeputy : entry) {
+    public String findPartiaBribetakers(Map<String, Partia> rada, String bribetaker) {
+        Set<Map.Entry<String, Partia>> entry = rada.entrySet();
+        for (Map.Entry<String, Partia> nameOfDeputy : entry) {
             for (Deputy deputy : nameOfDeputy.getValue().getDeputies()) {
                 if (Objects.equals(deputy.getName(), bribetaker)) {
                     return nameOfDeputy.getKey();
@@ -59,7 +59,7 @@ public class Util {
         return null;
     }
 
-    public boolean excludeFromParty(Party party, Deputy deputy) {
-        return party.getDeputies().remove(deputy);
+    public boolean excludeFromParty(Partia partia, Deputy deputy) {
+        return partia.getDeputies().remove(deputy);
     }
 }

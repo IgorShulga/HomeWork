@@ -1,7 +1,7 @@
 package hw_12;
 
 import hw_12.Rada.Deputy;
-import hw_12.Rada.Party;
+import hw_12.Rada.Partia;
 import hw_12.Rada.Util;
 
 import java.util.*;
@@ -9,7 +9,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Map<String, Party> rada = new HashMap<>();
+        Map<String, Partia> rada = new HashMap<>();
         Util util = new Util();
 
         Deputy deputy1 = new Deputy("Vasya", false);
@@ -33,8 +33,8 @@ public class Main {
         opositionList.add(deputy7);
         opositionList.add(deputy8);
 
-        Party koalition = new Party(koalitionList);
-        Party oposition = new Party(opositionList);
+        Partia koalition = new Partia(koalitionList);
+        Partia oposition = new Partia(opositionList);
 
         rada.put("koalition", koalition);
         rada.put("oposition", oposition);
@@ -47,7 +47,7 @@ public class Main {
             String bribeParty = util.findPartiaBribetakers(rada, bribeTaker.getName());
             System.out.println("This deputy from partia " + bribeParty);
             util.excludeFromParty(rada.get(bribeParty), bribeTaker);
-            System.out.println("We execud bribe taker from our party " + rada.get(bribeParty));
+            System.out.println("We excluded bribe taker from our party ");
         } else {
             System.out.println("There are not bribe takers");
         }

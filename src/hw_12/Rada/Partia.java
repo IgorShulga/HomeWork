@@ -3,10 +3,10 @@ package hw_12.Rada;
 import java.util.List;
 import java.util.Objects;
 
-public class Party {
+public class Partia {
     private List<Deputy> deputies;
 
-    public Party(List<Deputy> deputies) {
+    public Partia(List<Deputy> deputies) {
         this.deputies = deputies;
     }
 
@@ -23,9 +23,9 @@ public class Party {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Party party = (Party) o;
+        Partia partia = (Partia) o;
 
-        return Objects.equals(deputies, party.deputies);
+        return Objects.equals(deputies, partia.deputies);
     }
 
     @Override
